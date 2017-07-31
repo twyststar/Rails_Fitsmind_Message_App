@@ -20,6 +20,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.inet     :last_sign_in_ip
 
       t.boolean :admin, default: false
+      t.boolean :trainer, default: false
+      t.string :user_name, default: 'No User Name Given'
 
       ## Confirmable
       # t.string   :confirmation_token

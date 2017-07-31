@@ -25,14 +25,6 @@ ActiveRecord::Schema.define(version: 20170731171504) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "profiles", force: :cascade do |t|
-    t.string "user_name"
-    t.boolean "trainer"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -45,6 +37,8 @@ ActiveRecord::Schema.define(version: 20170731171504) do
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
     t.boolean "admin", default: false
+    t.boolean "trainer", default: false
+    t.string "user_name", default: "No User Name Given"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
