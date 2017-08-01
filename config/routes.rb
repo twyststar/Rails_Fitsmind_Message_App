@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root to: "home#welcome"
 
   devise_for :users
-  resources :users, only: [:index]
+  resources :users, only: [:show]
   resources :home, :only => [:welcome, :index]
   resources :conversations, :only => [ :show]
   resources :messages, only: [:create]

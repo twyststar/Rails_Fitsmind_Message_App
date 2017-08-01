@@ -15,8 +15,6 @@ class Conversation < ApplicationRecord
   #   where(current_user_id: sender_id, receiver_id: receiver_id).or(where(current_user_id: receiver_id, receiver_id: sender_id)).limit(1)
   # end
 
-  
-
   def other_user(current_user)
     if self.sender_id == current_user.id
       return self.receiver.user_name

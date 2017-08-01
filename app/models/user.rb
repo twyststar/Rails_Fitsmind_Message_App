@@ -11,13 +11,15 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+
   def between(rec_id)
     @convos = Conversation.all
     @convos.each do |c|
       if (c.sender_id == self.id && c.receiver_id == rec_id) || (c.receiver_id == self.id && c.sender_id == rec_id)
         return c
+      else
+        return false
       end
-
     end
   end
 end
