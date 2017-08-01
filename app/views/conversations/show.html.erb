@@ -10,7 +10,9 @@
   </div>
 
   <%= form_for @message do |f| %>
+    <%= hidden_field_tag 'receiver_id', @conversation.other_user(current_user).id%>
     <%= hidden_field_tag 'conversation_id', @conversation.id %>
+
     <%= f.label :content %>
     <%= f.text_area :content %>
 

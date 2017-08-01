@@ -13,12 +13,17 @@ class User < ApplicationRecord
 
 
   def between(rec_id)
+    @rec_id = rec_id.to_i
     @convos = Conversation.all
     @convos.each do |c|
-      if (c.sender_id == self.id && c.receiver_id == rec_id) || (c.receiver_id == self.id && c.sender_id == rec_id)
+      if (c.sender_id == self.id && c.receiver_id == @rec_id)
         return c
-      else
-        return false
+      elsif (c.receiver_id == self.id && c.sender_id == @rec_id)
+        return c
+      elsif (c.sender_id == self.id && c.receiver_id == self.id)
+        return c
+      # else
+      #   return false
       end
     end
   end

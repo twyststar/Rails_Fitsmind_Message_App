@@ -5,7 +5,8 @@
   <h4>Click to send a new message.</h4>
   <% if @conversations %>
     <% @conversations.each do |convo| %>
-    <%= link_to "Messages with #{convo.other_user(current_user)}  (#{convo.messages.length} messages)",  conversation_path(convo) %>
+    <%= link_to "Messages with #{convo.other_user(current_user).user_name}  (#{convo.messages.length} messages)",  conversation_path(convo) %>
+    <br>
     <% end %>
   <% else %>
     <h4>You have no conversations yet</h4>
@@ -16,7 +17,7 @@
   <h4>With a trainer:</h4>
   <div class="trainers">
     <% @users.each do |u| %>
-      <% if u.trainer && !current_user.between(u.id) %>
+      <% if (u.trainer) && (u != current_user) %>
         <%= link_to u.user_name, user_path(u) %>
       <% end %>
     <% end %>
@@ -24,7 +25,7 @@
   <h4>With another member:</h4>
   <div class="members">
     <% @users.each do |u| %>
-      <% if !u.trainer && !current_user.between(u.id) %>
+      <% if (!u.trainer) && (u != current_user) %>
         <%= link_to u.user_name, user_path(u) %>
       <% end %>
       <br>
