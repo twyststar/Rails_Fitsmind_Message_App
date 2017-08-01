@@ -11,6 +11,14 @@ class Conversation < ApplicationRecord
     where("(conversations.sender_id = ? OR conversations.receiver_id = ?)", user.id, user.id)
   end
 
+  def other_user(current_user)
+    if self.sender_id == current_user.id
+      return self.receiver.user_name
+    else
+      return self.sender.user_name
+    end
+  end
+
   def with(current_user)
     sender == current_user ? receiver : sender
   end

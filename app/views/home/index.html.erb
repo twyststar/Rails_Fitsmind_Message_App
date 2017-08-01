@@ -1,15 +1,16 @@
 
-<h1>We will place message button here</h1>
+
 <div class="col-xs-6">
-  <h1>User all conversations</h1>
+  <h1>Your current conversations</h1>
   <% if @conversations %>
     <% @conversations.each do |convo| %>
-    <%= link_to "Convo", conversation_path(convo) %>
+    <%= link_to "Messages with #{convo.other_user(current_user)}  (#{convo.messages.length} messages)",  conversation_path(convo) %>
     <% end %>
   <% else %>
     <h4>You have no conversations yet</h4>
   <% end %>
 </div>
 <div class="col-xs-6">
-  <h1>User new conversation</h1>
+  <h1>Start a new conversation</h1>
+  <%= render 'new_conversation' %>
 </div>
