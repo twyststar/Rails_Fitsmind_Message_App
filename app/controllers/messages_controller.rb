@@ -2,6 +2,7 @@ class MessagesController < ApplicationController
   before_action :find_conversation!
 
   def create
+
     @message = current_user.messages.build(message_params)
     @message.conversation_id = @conversation.id
     @message.save!
