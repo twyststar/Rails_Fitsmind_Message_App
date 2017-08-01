@@ -12,6 +12,7 @@
     <% if current_user %>
     <h4><%= current_user.email %></h4>
     <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+    <li><%= link_to "Home", home_index_path %></li> 
     <% else %>
     <h4>Not logged in</h4>
     <% end %>
