@@ -1,0 +1,18 @@
+<h1>Chatting with <%= @conversation.with(current_user).user_name %></h1>
+
+
+  <div id="conversation-body">
+    <% @conversation.messages.each do |message| %>
+      <%= message.content %>
+      <%= message.created_at %>
+      <br>
+    <% end %>
+  </div>
+
+  <%= form_for @message do |f| %>
+    <%= hidden_field_tag 'conversation_id', @conversation.id %>
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+
+    <%= f.submit %>
+  <% end %>

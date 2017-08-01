@@ -10,8 +10,9 @@
 
   <div class="field">
     <%= f.label :are_you_a_trainer? %><br />
-    <%= f.email_field :trainer, autofocus: true %>
+    <%= f.select :trainer, [['Trainer', true], ['Not a trainer', false]]%>
   </div>
+
 
   <div class="field">
     <%= f.label :email %><br />
