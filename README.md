@@ -30,6 +30,9 @@ Log ins:
 * trainertest2@test.com
 * admintest1@test.com
 
+#### Planning
+_Planning and goals can be found in planning.md_
+
 ## Support and contact details
 
 _Comment, concerns or suggestions welcome! lewis.start0905@gmail.com_
