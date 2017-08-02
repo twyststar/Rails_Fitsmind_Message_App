@@ -33,10 +33,8 @@ Focus especially on the back-end so that things work and the front-end doesn’t
 
 ### Finishing Touches
 
-- [ ] Add some style to the front pages.
+- [x] Add some style to the front pages.
 
-- [ ] Add panel/well styling to message displays.
+- [x] Add panel/well styling to message displays.
 
-- [ ] Refine scopes.
-
-- [ ] Create seed file to add initial users at each level.
+- [x] Create seed file to add initial users at each level.
