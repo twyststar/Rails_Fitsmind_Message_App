@@ -1,13 +1,14 @@
+<div class="well welcome">
+  <% if !current_user %>
+  <h1>Welcome, please sign in!</h1>
 
-<% if !current_user %>
-<h1>Welcome, please sign in!</h1>
+  <%= link_to 'Sign In', new_user_session_path %>
+  <p>Or</p>
+  <%= link_to 'Sign Up', new_user_registration_path %>
+  <% else %>
 
-<%= link_to 'Sign In', new_user_session_path %>
-<p>Or</p>
-<%= link_to 'Sign Up', new_user_registration_path %>
-<% else %>
+  <h1>Welcome, <%= current_user.user_name %>!</h1>
+  <%= link_to "Chat!", home_index_path %>
 
-<h1>Welcome, <%= current_user.user_name %>!</h1>
-<%= link_to "Chat!", home_index_path %>
-
-<% end %>
+  <% end %>
+</div>

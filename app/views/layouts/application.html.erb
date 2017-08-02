@@ -9,15 +9,31 @@
   </head>
 
   <body>
-    <% if current_user %>
-    <h4><%= current_user.email %>, <%= current_user.user_name %></h4>
-    <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
-    <li><%= link_to "Home", home_index_path %></li>
-    <% else %>
-    <h4>Not logged in</h4>
-    <% end %>
     <div class="container">
-      <%= yield %>
+      <div class="jumbotron">
+        <h1>Welcome to FitsMind Messaging!</h1>
+        <h4>Combining Mental and Physical Training</h4>
+        <div class="collapse navbar-collapse" id="navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-left">
+            <% if current_user && current_user.admin %>
+              <li><%= link_to 'Admin', rails_admin_path %></li>
+            <% end %>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+              <% if current_user %>
+              <li><%= link_to 'Chat', home_index_path %></li>
+              <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+              <% else %>
+              <li><%= link_to 'Login', new_user_session_path %></li>
+              <% end %>
+          </ul>
+        </div>
+      </div>
+
+        <%= yield %>
+
+
     </div>
 
   </body>

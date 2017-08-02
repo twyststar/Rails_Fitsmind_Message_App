@@ -12,9 +12,7 @@ gem 'devise'
 gem 'rails_admin', '>= 1.0.0.rc'
 gem 'sprockets-rails', '~> 3.2'
 gem 'bootstrap-sass', '~> 3.3.6'
-
-# Incase of further levels of authentication/authorization in the future
-# gem 'cancancan'
+gem 'cancancan'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.2'

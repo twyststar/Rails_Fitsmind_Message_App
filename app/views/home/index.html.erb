@@ -1,9 +1,10 @@
 
 
-<div class="col-xs-6">
+<div class="col-xs-6 well current-chat">
   <h1>Your current conversations</h1>
-  <h4>Click to send a new message.</h4>
-  <% if @conversations %>
+
+  <% if @conversations.any? %>
+    <h4>Click a conversation to send a new message.</h4>
     <% @conversations.each do |convo| %>
     <%= link_to "Messages with #{convo.other_user(current_user).user_name}  (#{convo.messages.length} messages)",  conversation_path(convo) %>
     <br>
@@ -12,13 +13,14 @@
     <h4>You have no conversations yet</h4>
   <% end %>
 </div>
-<div class="col-xs-6">
+<div class="col-xs-5 well new-chat">
   <h1>Start a new conversation</h1>
   <h4>With a trainer:</h4>
   <div class="trainers">
     <% @users.each do |u| %>
       <% if (u.trainer) && (u != current_user) %>
         <%= link_to u.user_name, user_path(u) %>
+        <br>
       <% end %>
     <% end %>
   </div>
